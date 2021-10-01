@@ -1,0 +1,52 @@
+.main {
+  font-family: $font-main;
+  border-style: none;
+  box-sizing: border-box;
+  //background-color: black;
+  width: 100%;
+}
+.title {
+  margin: 1rem;
+  color: $dark-grey;
+}
+
+.form {
+  padding-left: 1rem;
+  box-sizing: border-box;
+  display: inline-block;
+
+  &__input-text {
+    margin: 1rem;
+    width: 20rem;
+    border: solid 3px black;
+    padding: 12px;
+    border-radius: 3px;
+    color: black;
+    ::placeholder {
+      color: black;
+    }
+    ::value {
+      color: black;
+    }
+  }
+}
+
+.card {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__item {
+    margin: 1rem;
+    padding: 1rem;
+    width: 10rem;
+    height: 12rem;
+    list-style: none;
+    border-radius: 0.5rem;
+    border: 1px solid (127, 194, 241);
+    background-color: rgba(127, 194, 241, 0.2);
+    font-weight: bold;
+    color: rgb(80, 75, 75);
+  }
+}
