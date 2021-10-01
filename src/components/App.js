@@ -1,7 +1,22 @@
 // Fichero src/components/App.js
 import '../styles/App.scss';
+import React, { useState, useEffect } from 'react';
+
+// services
+import DataApi from '../services/DataApi';
 
 function App() {
+  //estados//
+  const [data, setData] = useState([]);
+
+  //useEffect//
+  useEffect(() => {
+    DataApi().then((initialData) => {
+      setData(initialData);
+      console.log(initialData);
+    });
+  }, []);
+
   return (
     <div>
       <header>
