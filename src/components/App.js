@@ -11,6 +11,7 @@ import DataApi from '../services/DataApi';
 function App() {
   //estados//
   const [data, setData] = useState([]);
+  const [searchName, setSearchName] = useState('');
 
   //useEffect//
   useEffect(() => {
@@ -19,6 +20,15 @@ function App() {
       console.log('InitialData', initialData);
     });
   }, []);
+
+  //Funciones manejadoras//
+  const handleChangeSearchName = (ev) => {
+    setSearchName(ev.currentTarget.value);
+  };
+  //Funciones para filtrar por
+  const filteredData = data.filter((contact) =>
+    contact.name.toLocaleLowerCase().includes(searchName.toLocaleLowerCase())
+  );
 
   return (
     <div>
@@ -36,11 +46,13 @@ function App() {
               type="text"
               name="name"
               id="name"
+              value={searchName}
+              onChange={handleChangeSearchName}
             />
           </form>
         </section>
         <section>
-          <CharacterList data={data} />
+          <CharacterList data={filteredData} />
         </section>
       </main>
     </div>
