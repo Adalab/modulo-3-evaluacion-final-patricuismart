@@ -4,6 +4,7 @@ function getDataFromApi() {
     .then((json) => {
       //limpio datos que me llegan Api con el map
       return json.results.map((character) => {
+        //console.log('Fetch', character);
         return {
           id: character.id,
           photo: character.image,
@@ -16,4 +17,5 @@ function getDataFromApi() {
       });
     });
 }
+
 export default getDataFromApi;

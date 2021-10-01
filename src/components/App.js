@@ -2,6 +2,9 @@
 import '../styles/App.scss';
 import React, { useState, useEffect } from 'react';
 
+// Componenetes //
+import CharacterList from './CharacterList';
+
 // services
 import DataApi from '../services/DataApi';
 
@@ -13,7 +16,7 @@ function App() {
   useEffect(() => {
     DataApi().then((initialData) => {
       setData(initialData);
-      console.log(initialData);
+      console.log('InitialData', initialData);
     });
   }, []);
 
@@ -36,14 +39,8 @@ function App() {
             />
           </form>
         </section>
-        <section className="card__list">
-          <article className="card__item">
-            <a href="#">
-              <img className="card__img" src="#" alt="#" title="#" />
-              <h4 className="card__title">Nombre</h4>
-              <p className="card__description">Especie</p>
-            </a>
-          </article>
+        <section>
+          <CharacterList data={data} />
         </section>
       </main>
     </div>
