@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 // Componenetes //
 import CharacterList from './CharacterList';
+import Filter from './Filters';
 
 // services
 import DataApi from '../services/DataApi';
@@ -37,19 +38,10 @@ function App() {
       </header>
       <main className="main">
         <section className="form">
-          <form>
-            <label className="form__label" htmlFor="name">
-              Filtrar por nombre:
-            </label>
-            <input
-              className="form__input-text"
-              type="text"
-              name="name"
-              id="name"
-              value={searchName}
-              onChange={handleChangeSearchName}
-            />
-          </form>
+          <Filter
+            searchName={searchName}
+            handleChangeSearchName={handleChangeSearchName}
+          />
         </section>
         <section>
           <CharacterList data={filteredData} />
