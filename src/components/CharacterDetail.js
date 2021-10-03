@@ -1,16 +1,29 @@
 const CharacterDetail = (props) => {
   console.log('CharacterDetail', props);
-  return (
-    <a href="#">
-      <img
-        className="card__img"
-        src={props.characterData.photo}
-        alt={`Foto de ${props.characterData.name}`}
-        title={`Foto de ${props.characterData.name}`}
-      />
-      <h4 className="card__title">{props.characterData.name}</h4>
-      <p className="card__description">{props.characterData.species}</p>
-    </a>
-  );
+  if (props.character === undefined) {
+    return (
+      <section>
+        <p>Página no encontrada</p>
+      </section>
+    );
+  } else {
+    return (
+      <section>
+        <img
+          className="card__img"
+          src={props.character.photo}
+          alt={`Foto de ${props.character.name}`}
+          title={`Foto de ${props.character.name}`}
+        />
+        <ul>
+          <li>Nombre: {props.character.name}</li>
+          <li>Status: {props.character.status}</li>
+          <li>Species: {props.character.species}</li>
+          <li>Origin: {props.character.origin}</li>
+          <li>Episodes: {props.character.episodes}</li>
+        </ul>
+      </section>
+    );
+  }
 };
 export default CharacterDetail;

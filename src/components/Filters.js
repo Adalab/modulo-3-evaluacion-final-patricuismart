@@ -1,5 +1,5 @@
 const Filter = (props) => {
-  console.log('filter', props);
+  //console.log('filter', props);
   return (
     <form>
       <label className="form__label" htmlFor="name">
