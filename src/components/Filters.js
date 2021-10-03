@@ -1,19 +1,19 @@
-const Filter = (props) => {
+import FiletrByName from './FilterByName';
+import FiletrBySpecies from './FilterBySpecies';
+
+const Filters = (props) => {
   //console.log('filter', props);
   return (
     <form>
-      <label className="form__label" htmlFor="name">
-        Filtrar por nombre:
-      </label>
-      <input
-        className="form__input-text"
-        type="text"
-        name="name"
-        id="name"
-        value={props.searchName}
-        onChange={props.handleChangeSearchName}
+      <FiletrByName
+        searchName={props.searchName}
+        handleChangeSearchName={props.handleChangeSearchName}
+      />
+      <FiletrBySpecies
+        searchSpecies={props.searchSpecies}
+        handleChangeSearchSpecies={props.handleChangeSearchSpecies}
       />
     </form>
   );
 };
-export default Filter;
+export default Filters;

@@ -7,7 +7,7 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import CharacterList from './CharacterList';
-import Filter from './Filters';
+import Filters from './Filters';
 
 // services
 import DataApi from '../services/DataApi';
@@ -17,6 +17,7 @@ function App() {
   //estados//
   const [data, setData] = useState([]);
   const [searchName, setSearchName] = useState('');
+  const [searchSpecies, setSearchSpecies] = useState('all');
 
   //useEffect//
   useEffect(() => {
@@ -29,6 +30,10 @@ function App() {
   //Funciones manejadoras//
   const handleChangeSearchName = (ev) => {
     setSearchName(ev.currentTarget.value);
+  };
+
+  const handleChangeSearchSpecies = (ev) => {
+    setSearchSpecies(ev.currentTarget.value);
   };
 
   //  USERouteMatch
@@ -48,9 +53,17 @@ function App() {
   console.log('este es el console del id', characterId);
 
   //Funciones para filtrar por
-  const filteredData = data.filter((contact) =>
-    contact.name.toLocaleLowerCase().includes(searchName.toLocaleLowerCase())
-  );
+  const filteredData = data
+    .filter((character) =>
+      character.name
+        .toLocaleLowerCase()
+        .includes(searchName.toLocaleLowerCase())
+    )
+
+    .filter(
+      (character) =>
+        searchSpecies === 'all' || searchSpecies === character.species
+    );
 
   return (
     <div>
@@ -65,9 +78,11 @@ function App() {
           </Route>
           <Route exact path="/">
             <section className="form">
-              <Filter
-                searchName={searchName}
+              <Filters
+                searchName={setSearchName}
                 handleChangeSearchName={handleChangeSearchName}
+                searchSpecies={setSearchSpecies}
+                handleChangeSearchSpecies={handleChangeSearchSpecies}
               />
             </section>
             <section>
