@@ -1,9 +1,11 @@
 // Fichero src/components/App.js
 import '../styles/App.scss';
 import React, { useState, useEffect } from 'react';
-import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
 // Componenetes //
+import Header from './Header';
+import Footer from './Footer';
 import CharacterList from './CharacterList';
 import Filter from './Filters';
 
@@ -43,7 +45,7 @@ function App() {
     (character) => character.id === parseInt(characterId)
   );
   console.log('SelectedCharacter', selectedCharacter);
-  console.log('id', characterId);
+  console.log('este es el console del id', characterId);
 
   //Funciones para filtrar por
   const filteredData = data.filter((contact) =>
@@ -52,15 +54,13 @@ function App() {
 
   return (
     <div>
-      <header>
-        <h1 className="title">Rick and Morty</h1>
-      </header>
+      <Header />
 
       <main className="main">
         <Switch>
           <Route path="/character/:id">
             <section>
-              <CharacterDetail character={selectedCharacter} />
+              <CharacterDetail selectedCharacter={selectedCharacter} />
             </section>
           </Route>
           <Route exact path="/">
@@ -81,6 +81,7 @@ function App() {
           </Route>
         </Switch>
       </main>
+      <Footer />
     </div>
   );
 }

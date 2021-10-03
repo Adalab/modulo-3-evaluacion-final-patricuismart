@@ -1,7 +1,7 @@
 import CharacterItem from './CharacterDetail';
 
 const CharacterList = (props) => {
-  //console.log('CharacterList', props);
+  console.log('CharacterList', props);
 
   const html = props.data.map((characterData, index) => (
     <li key={index} className="card__item">

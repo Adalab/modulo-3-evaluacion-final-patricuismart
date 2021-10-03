@@ -2,7 +2,7 @@
   font-family: $font-main;
   border-style: none;
   box-sizing: border-box;
-  //background-color: black;
+  background-color: black;
   width: 100%;
 }
 .title {
@@ -11,30 +11,33 @@
 }
 
 .form {
+  text-align: center;
   padding-left: 1rem;
   box-sizing: border-box;
-  display: inline-block;
 
   &__input-text {
     margin: 1rem;
-    width: 20rem;
-    border: solid 3px black;
-    padding: 12px;
+    width: 18rem;
+    border: solid 3px $aqua;
+    padding: 0.5rem;
     border-radius: 3px;
-    color: black;
+    color: $aqua;
     ::placeholder {
-      color: black;
+      color: $aqua;
     }
     ::value {
-      color: black;
+      color: $aqua;
     }
+  }
+  &__label {
+    color: $color-bg;
   }
 }
 
 .card {
   &__list {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
   &__item {
@@ -46,8 +49,8 @@
     border-radius: 0.5rem;
     border: 1px solid (127, 194, 241);
     background-color: rgba(127, 194, 241, 0.2);
-    font-weight: bold;
-    color: rgb(80, 75, 75);
+    font-size: 0.8rem;
+    color: white;
   }
   &__img {
     width: 8rem;
