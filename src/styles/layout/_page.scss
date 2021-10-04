@@ -21,7 +21,7 @@
     border: solid 3px $aqua;
     padding: 0.5rem;
     border-radius: 3px;
-    color: $aqua;
+    color: grey;
     ::placeholder {
       color: $aqua;
     }
@@ -51,8 +51,15 @@
     background-color: rgba(127, 194, 241, 0.2);
     font-size: 0.8rem;
     color: $button-color;
+    text-decoration: none;
   }
   &__img {
     width: 8rem;
+  }
+  &__title,
+  &__description {
+    text-decoration: none;
+    color: $button-color;
+    padding: 0.3rem;
   }
 }

@@ -25,6 +25,7 @@ function App() {
 
   // Reset
   const handleReset = () => {
+    localStorage.clear();
     window.location.reload(true);
   };
 

@@ -21,10 +21,10 @@ const CharacterDetail = (props) => {
           />
           <ul>
             <li>Nombre: {props.selectedCharacter.origin.name}</li>
-            {/*<li>Status: {props.selectedCharacter.status}</li>
+            <li>Status: {props.selectedCharacter.status}</li>
             <li>Species: {props.selectedCharacter.species}</li>
-            <li>Origin: {props.selectedCharacter.origin}</li>
-           <li>Episodes: {props.selectedCharacter.episodes}</li>*/}
+            <li>Origin: {props.selectedCharacter.origin.name}</li>
+            <li>Episodes: {props.selectedCharacter.episodes}</li>
           </ul>
         </section>
       </div>
