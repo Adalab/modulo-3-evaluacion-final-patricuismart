@@ -1,16 +1,16 @@
-.notfound {
+.undefined {
   padding-top: 3rem;
   display: flex;
   align-content: center;
   justify-content: center;
   height: 100vh;
   &__paragraph {
-    text-align: center;
     font-family: $font-main;
     color: $button-color;
     padding: 0.8rem;
     font-size: 2rem;
     border: solid $button-color;
+    text-align: center;
     width: 25rem;
     height: 3rem;
   }

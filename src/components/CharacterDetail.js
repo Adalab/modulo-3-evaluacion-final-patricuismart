@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
-  console.log('CharacterDetail', props);
+  console.log('SelectedChar', props.selectedCharacter);
   if (props.selectedCharacter === undefined) {
     return (
-      <section>
-        <p>Personaje no encontrado</p>
+      <section className="undefined">
+        <Link className="detail__link" to="/">
+          <i className="fas fa-times-circle icon"></i>
+        </Link>
+        <p className="undefined__paragraph">Personaje no encontrado</p>
       </section>
     );
   } else {
