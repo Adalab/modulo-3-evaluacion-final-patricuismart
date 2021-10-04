@@ -7,9 +7,6 @@ const FilterBySpecies = (props) => {
   };
   return (
     <>
-      <label className="form__label display-block" htmlFor="gender">
-        Género:
-      </label>
       <select
         className="form__input-select"
         name="species"
@@ -18,7 +15,7 @@ const FilterBySpecies = (props) => {
         value={props.searchSpecies}
         onChange={handleChange}
       >
-        <option value="all">Todos</option>
+        <option value="all">Species</option>
         <option value="Alien">Allien</option>
         <option value="Human">Human</option>
       </select>

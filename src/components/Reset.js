@@ -3,11 +3,9 @@ const Reset = (props) => {
     props.handleReset();
   };
   return (
-    <div className="container__resetButton">
-      <button className="resetButton" onClick={handleReset}>
-        Reset
-      </button>
-    </div>
+    <button className="resetButton" onClick={handleReset}>
+      Reset
+    </button>
   );
 };
 export default Reset;

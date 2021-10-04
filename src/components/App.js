@@ -109,7 +109,6 @@ function App() {
                 searchSpecies={searchSpecies}
                 handleChangeFilter={handleChangeFilter}
               />
-              <Reset handleReset={handleReset} />
             </section>
             <section>
               <CharacterList data={filteredData} />

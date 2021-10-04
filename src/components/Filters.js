@@ -1,6 +1,6 @@
 import FiletrByName from './FilterByName';
 import FiletrBySpecies from './FilterBySpecies';
-
+import Reset from './Reset';
 const Filters = (props) => {
   //console.log('filter', props);
   return (
@@ -13,6 +13,7 @@ const Filters = (props) => {
         searchSpecies={props.searchSpecies}
         handleChangeFilter={props.handleChangeFilter}
       />
+      <Reset handleReset={props.handleReset} />
     </form>
   );
 };
