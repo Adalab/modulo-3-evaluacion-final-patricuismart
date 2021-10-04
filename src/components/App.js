@@ -13,6 +13,7 @@ import Filters from './Filters';
 // services
 import DataApi from '../services/DataApi';
 import ls from '../services/local-storage';
+import PageNotFound from './PageNotFound';
 
 function App() {
   //estados//
@@ -117,8 +118,8 @@ function App() {
 
           {/*ruta escrita mal */}
           <Route>
-            <section>
-              <p>Oh!! Página no encontrada</p>
+            <section className="notfound">
+              <PageNotFound />
             </section>
           </Route>
         </Switch>
