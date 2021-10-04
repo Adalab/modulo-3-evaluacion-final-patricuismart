@@ -59,7 +59,7 @@ function App() {
     }
   };
 
-  //  USERouteMatch
+  //  UseRouteMatch
   const routeData = useRouteMatch('/character/:id');
 
   // Ternario de 'seguridad' si la ruta no es la que estamos esperando devuelve null
