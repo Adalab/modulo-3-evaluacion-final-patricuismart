@@ -9,7 +9,6 @@ import Footer from './Footer';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
-import Reset from './Reset';
 
 // services
 import DataApi from '../services/DataApi';
@@ -108,9 +107,10 @@ function App() {
                 searchName={searchName}
                 searchSpecies={searchSpecies}
                 handleChangeFilter={handleChangeFilter}
+                handleReset={handleReset}
               />
             </section>
-            <section>
+            <section className="cards">
               <CharacterList data={filteredData} />
             </section>
           </Route>

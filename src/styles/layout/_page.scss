@@ -52,6 +52,7 @@
   color: #fff;
   cursor: pointer;
   transition: all ease 0.3s;
+  margin-left: 0.6rem;
 
   &:hover {
     border-color: $grey;
@@ -76,7 +77,8 @@
     color: $button-color;
     text-decoration: none;
     &:hover {
-      border: solid 3px $aqua;
+      border: solid 0.4rem $aqua;
+      border-radius: 0.1rem;
     }
   }
   &__link {

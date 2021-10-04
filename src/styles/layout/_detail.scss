@@ -1,0 +1,55 @@
+.detail {
+  &__container {
+    padding-top: 3rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 2rem;
+    width: 36rem;
+    height: 17rem;
+    list-style: none;
+    border: 1px solid (127, 194, 241);
+    background-color: $button-color;
+    font-size: 0.8rem;
+    color: $button-color;
+    text-decoration: none;
+  }
+  &__link {
+    text-decoration: none;
+    color: white;
+  }
+  &__img {
+    margin: 1rem;
+    width: 15rem;
+  }
+  &__title {
+    list-style: none;
+    text-decoration: none;
+    color: $dark-grey;
+    padding: 0.1rem;
+    font-size: 1.2rem;
+    width: 16rem;
+  }
+  &__description {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    padding: 0.1rem;
+    font-size: 0.9rem;
+    width: 16rem;
+  }
+  &__text {
+    margin: auto;
+  }
+}
+.icon {
+  color: $aqua;
+  transform: scale(1.5);
+  margin-top: 1rem;
+}

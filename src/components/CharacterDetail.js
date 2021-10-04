@@ -10,21 +10,33 @@ const CharacterDetail = (props) => {
     );
   } else {
     return (
-      <div>
-        <section>
-          <Link to="/">Volver Atrás</Link>
+      <div className="detail__container">
+        <Link className="detail__link" to="/">
+          <i className="fas fa-times-circle icon"></i>
+        </Link>
+        <section className="detail__item">
           <img
-            className="card__img"
+            className="detail__img"
             src={props.selectedCharacter.photo}
             alt={`Foto de ${props.selectedCharacter.name}`}
             title={`Foto de ${props.selectedCharacter.name}`}
           />
-          <ul>
-            <li>Nombre: {props.selectedCharacter.origin.name}</li>
-            <li>Status: {props.selectedCharacter.status}</li>
-            <li>Species: {props.selectedCharacter.species}</li>
-            <li>Origin: {props.selectedCharacter.origin.name}</li>
-            <li>Episodes: {props.selectedCharacter.episodes}</li>
+          <ul className="detail__text">
+            <li className="detail__title">
+              Nombre: {props.selectedCharacter.name}
+            </li>
+            <li className="detail__description">
+              Status: {props.selectedCharacter.status}
+            </li>
+            <li className="detail__description">
+              Species: {props.selectedCharacter.species}
+            </li>
+            <li className="detail__description">
+              Origin: {props.selectedCharacter.origin.name}
+            </li>
+            <li className="detail__description">
+              Episodes: {props.selectedCharacter.episode.length}
+            </li>
           </ul>
         </section>
       </div>
