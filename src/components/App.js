@@ -7,17 +7,24 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import CharacterList from './CharacterList';
+import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
+import Reset from './Reset';
 
 // services
 import DataApi from '../services/DataApi';
-import CharacterDetail from './CharacterDetail';
+import ls from '../services/local-storage';
 
 function App() {
   //estados//
   const [data, setData] = useState([]);
   const [searchName, setSearchName] = useState('');
   const [searchSpecies, setSearchSpecies] = useState('all');
+
+  // Reset
+  const handleReset = () => {
+    window.location.reload(true);
+  };
 
   //useEffect//
   useEffect(() => {
@@ -26,6 +33,18 @@ function App() {
       //console.log('InitialData', initialData);
     });
   }, []);
+
+  //Local Storage
+
+  // useEffect(() => {
+  //   ls.set('data', data);
+  // }, [data]);
+  // useEffect(() => {
+  //   ls.set('searchName', searchName);
+  // }, [searchName]);
+  // useEffect(() => {
+  //   ls.set('searchSpecies', searchSpecies);
+  // }, [searchSpecies]);
 
   //Funciones manejadoras//
 
@@ -36,17 +55,6 @@ function App() {
       setSearchSpecies(data.value);
     }
   };
-  // const handleChangeSearchName = (ev) => {
-  //   ev.preventDefault();
-  //   setSearchName(ev.currentTarget.value);
-  //   console.log(ev.currentTarget.value);
-  // };
-
-  // const handleChangeSearchSpecies = (ev) => {
-  //   ev.preventDefault();
-  //   setSearchSpecies(ev.currentTarget.value);
-  //   console.log(ev.currentTarget.value);
-  // };
 
   //  USERouteMatch
   const routeData = useRouteMatch('/character/:id');
@@ -95,6 +103,7 @@ function App() {
                 searchSpecies={searchSpecies}
                 handleChangeFilter={handleChangeFilter}
               />
+              <Reset handleReset={handleReset} />
             </section>
             <section>
               <CharacterList data={filteredData} />
