@@ -23,18 +23,30 @@ function App() {
   useEffect(() => {
     DataApi().then((initialData) => {
       setData(initialData);
-      console.log('InitialData', initialData);
+      //console.log('InitialData', initialData);
     });
   }, []);
 
   //Funciones manejadoras//
-  const handleChangeSearchName = (ev) => {
-    setSearchName(ev.currentTarget.value);
-  };
 
-  const handleChangeSearchSpecies = (ev) => {
-    setSearchSpecies(ev.currentTarget.value);
+  const handleChangeFilter = (data) => {
+    if (data.id === 'name') {
+      setSearchName(data.value);
+    } else {
+      setSearchSpecies(data.value);
+    }
   };
+  // const handleChangeSearchName = (ev) => {
+  //   ev.preventDefault();
+  //   setSearchName(ev.currentTarget.value);
+  //   console.log(ev.currentTarget.value);
+  // };
+
+  // const handleChangeSearchSpecies = (ev) => {
+  //   ev.preventDefault();
+  //   setSearchSpecies(ev.currentTarget.value);
+  //   console.log(ev.currentTarget.value);
+  // };
 
   //  USERouteMatch
   const routeData = useRouteMatch('/character/:id');
@@ -43,14 +55,14 @@ function App() {
   // Dentro de characterId se guarda la parte variable de la ruta
 
   const characterId = routeData !== null ? routeData.params.id : '';
-  console.log('useRouteMatch', routeData);
+  //console.log('useRouteMatch', routeData);
 
   // Buscamos dentro de todos los objetos cual es el que tiene ese id//
   const selectedCharacter = data.find(
     (character) => character.id === parseInt(characterId)
   );
-  console.log('SelectedCharacter', selectedCharacter);
-  console.log('este es el console del id', characterId);
+  //console.log('SelectedCharacter', selectedCharacter);
+  //console.log('este es el console del id', characterId);
 
   //Funciones para filtrar por
   const filteredData = data
@@ -79,10 +91,9 @@ function App() {
           <Route exact path="/">
             <section className="form">
               <Filters
-                searchName={setSearchName}
-                handleChangeSearchName={handleChangeSearchName}
-                searchSpecies={setSearchSpecies}
-                handleChangeSearchSpecies={handleChangeSearchSpecies}
+                searchName={searchName}
+                searchSpecies={searchSpecies}
+                handleChangeFilter={handleChangeFilter}
               />
             </section>
             <section>

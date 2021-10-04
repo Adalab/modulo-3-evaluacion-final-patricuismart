@@ -1,5 +1,10 @@
 const FilterByName = (props) => {
-  console.log('FilterByName', props);
+  const handleChange = (ev) => {
+    props.handleChangeFilter({
+      value: ev.target.value,
+      id: 'name',
+    });
+  };
   return (
     <>
       <label className="form__label" htmlFor="name">
@@ -10,8 +15,10 @@ const FilterByName = (props) => {
         type="text"
         name="name"
         id="name"
+        key="name"
+        placeholder="Ej: Rick Sanchez"
         value={props.searchName}
-        onChange={props.handleChangeSearchName}
+        onChange={handleChange}
       />
     </>
   );

@@ -4,14 +4,14 @@ import FiletrBySpecies from './FilterBySpecies';
 const Filters = (props) => {
   //console.log('filter', props);
   return (
-    <form>
+    <form onSubmit={(ev) => ev.preventDefaul()}>
       <FiletrByName
         searchName={props.searchName}
-        handleChangeSearchName={props.handleChangeSearchName}
+        handleChangeFilter={props.handleChangeFilter}
       />
       <FiletrBySpecies
         searchSpecies={props.searchSpecies}
-        handleChangeSearchSpecies={props.handleChangeSearchSpecies}
+        handleChangeFilter={props.handleChangeFilter}
       />
     </form>
   );

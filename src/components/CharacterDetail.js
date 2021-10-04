@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
-  console.log('CharacterDetail', props);
+  //console.log('CharacterDetail', props);
   if (props.selectedCharacter === undefined) {
     return (
       <section>
-        <p>Página no encontrada</p>
+        <p>Personaje no encontrado</p>
       </section>
     );
   } else {
