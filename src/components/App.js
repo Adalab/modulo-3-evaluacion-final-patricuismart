@@ -17,9 +17,11 @@ import ls from '../services/local-storage';
 
 function App() {
   //estados//
-  const [data, setData] = useState([]);
-  const [searchName, setSearchName] = useState('');
-  const [searchSpecies, setSearchSpecies] = useState('all');
+  const [data, setData] = useState(ls.get('data', []));
+  const [searchName, setSearchName] = useState(ls.get('searchName', ''));
+  const [searchSpecies, setSearchSpecies] = useState(
+    ls.get('searchSpecies', 'all')
+  );
 
   // Reset
   const handleReset = () => {
@@ -36,15 +38,15 @@ function App() {
 
   //Local Storage
 
-  // useEffect(() => {
-  //   ls.set('data', data);
-  // }, [data]);
-  // useEffect(() => {
-  //   ls.set('searchName', searchName);
-  // }, [searchName]);
-  // useEffect(() => {
-  //   ls.set('searchSpecies', searchSpecies);
-  // }, [searchSpecies]);
+  useEffect(() => {
+    ls.set('data', data);
+  }, [data]);
+  useEffect(() => {
+    ls.set('searchName', searchName);
+  }, [searchName]);
+  useEffect(() => {
+    ls.set('searchSpecies', searchSpecies);
+  }, [searchSpecies]);
 
   //Funciones manejadoras//
 
@@ -69,8 +71,8 @@ function App() {
   const selectedCharacter = data.find(
     (character) => character.id === parseInt(characterId)
   );
-  //console.log('SelectedCharacter', selectedCharacter);
-  //console.log('este es el console del id', characterId);
+  console.log('SelectedCharacter', selectedCharacter);
+  console.log('este es el console del id', characterId);
 
   //Funciones para filtrar por
   const filteredData = data
@@ -91,11 +93,14 @@ function App() {
 
       <main className="main">
         <Switch>
-          <Route path="/character/:id">
+          {/*pintar el detalle de un personaje */}
+          <Route exact path="/character/:id">
             <section>
               <CharacterDetail selectedCharacter={selectedCharacter} />
             </section>
           </Route>
+
+          {/*listado personajes con/sin filtro*/}
           <Route exact path="/">
             <section className="form">
               <Filters
@@ -109,6 +114,8 @@ function App() {
               <CharacterList data={filteredData} />
             </section>
           </Route>
+
+          {/*ruta escrita mal */}
           <Route>
             <section>
               <p>Oh!! Página no encontrada</p>
