@@ -22,6 +22,9 @@ function App() {
   const [searchSpecies, setSearchSpecies] = useState(
     ls.get('searchSpecies', 'all')
   );
+  const [searchStatus, setSearchStatus] = useState(
+    ls.get('searchStatus', 'all')
+  );
   const [searchSortAtoZ, setSearchSortAtoZ] = useState(
     ls.get('searchSortAtoZ', 'false')
   );
@@ -51,6 +54,9 @@ function App() {
   useEffect(() => {
     ls.set('searchSpecies', searchSpecies);
   }, [searchSpecies]);
+  useEffect(() => {
+    ls.set('searchStatus', searchStatus);
+  }, [searchStatus]);
 
   useEffect(() => {
     ls.set('searchSortAtoZ', searchSortAtoZ);
@@ -63,6 +69,8 @@ function App() {
       setSearchName(data.value);
     } else if (data.id === 'species') {
       setSearchSpecies(data.value);
+    } else if (data.id === 'status') {
+      setSearchStatus(data.value);
     } else {
       setSearchSortAtoZ(data.checked);
     }
@@ -84,7 +92,8 @@ function App() {
   console.log('SelectedCharacter', selectedCharacter);
   console.log('este es el console del id', characterId);
 
-  //Funciones para filtrar por
+  //Funciones para filtrar
+
   const filteredData = data
     .filter((character) =>
       character.name
@@ -95,7 +104,12 @@ function App() {
     .filter(
       (character) =>
         searchSpecies === 'all' || searchSpecies === character.species
+    )
+
+    .filter(
+      (character) => searchStatus === 'all' || searchStatus === character.status
     );
+
   //si está clickado el checkbox ordena alfabéticamente
   if (searchSortAtoZ) {
     filteredData.sort((a, b) => {
@@ -127,6 +141,8 @@ function App() {
             <Filters
               searchName={searchName}
               searchSpecies={searchSpecies}
+              searchStatus={searchStatus}
+              searchSortAtoZ={searchSortAtoZ}
               handleChangeFilter={handleChangeFilter}
               handleReset={handleReset}
             />
@@ -135,7 +151,7 @@ function App() {
             </section>
           </Route>
 
-          {/*ruta escrita mal */}
+          {/*ruta mal escrita */}
           <Route>
             <section className="notfound">
               <PageNotFound />

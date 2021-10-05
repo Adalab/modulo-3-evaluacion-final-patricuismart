@@ -1,7 +1,23 @@
 import { Link } from 'react-router-dom';
 
+const dead = <i className="fas fa-skull skull"></i>;
+const alive = <i className="fa fa-heartbeat heart " aria-hidden="true"></i>;
+const unknown = (
+  <i className="fa fa-question-circle unknown" aria-hidden="true"></i>
+);
+
 const CharacterDetail = (props) => {
-  console.log('SelectedChar', props.selectedCharacter);
+  // console.log('SelectedChar', props.selectedCharacter);
+
+  const getStatus = () => {
+    if (props.selectedCharacter.status === 'Dead') {
+      return dead;
+    } else if (props.selectedCharacter.status === 'Alive') {
+      return alive;
+    } else {
+      return unknown;
+    }
+  };
   if (props.selectedCharacter === undefined) {
     return (
       <section className="undefined">
@@ -29,9 +45,6 @@ const CharacterDetail = (props) => {
               Nombre: {props.selectedCharacter.name}
             </li>
             <li className="detail__description">
-              Status: {props.selectedCharacter.status}
-            </li>
-            <li className="detail__description">
               Species: {props.selectedCharacter.species}
             </li>
             <li className="detail__description">
@@ -40,6 +53,7 @@ const CharacterDetail = (props) => {
             <li className="detail__description">
               Episodes: {props.selectedCharacter.episode.length}
             </li>
+            <li className="detail__description">{getStatus()}</li>
           </ul>
         </section>
       </div>

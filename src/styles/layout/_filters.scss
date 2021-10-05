@@ -40,7 +40,18 @@
   &__label-checked {
     color: $aqua;
     font-size: 0.9rem;
+  }
+
+  &__input-status {
     margin: 0.6rem;
+    border: solid 3px $aqua;
+    padding: 0.4rem;
+    border-radius: 2px;
+    color: grey;
+
+    ::value {
+      color: $aqua;
+    }
   }
 }
 

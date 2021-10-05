@@ -35,6 +35,7 @@
     padding: 0.1rem;
     font-size: 1.2rem;
     width: 16rem;
+    font-weight: bold;
   }
   &__description {
     text-decoration: none;
@@ -52,4 +53,22 @@
   color: $aqua;
   transform: scale(1.5);
   margin-top: 1rem;
+}
+
+.heart {
+  transform: scale(2);
+  color: rgb(250, 207, 246);
+  margin: 0.6rem;
+}
+
+.skull {
+  transform: scale(2);
+  color: black;
+  margin: 0.6rem;
+}
+
+.unknown {
+  transform: scale(2);
+  color: black;
+  margin: 0.6rem;
 }
