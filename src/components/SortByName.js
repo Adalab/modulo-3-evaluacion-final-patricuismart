@@ -17,7 +17,7 @@ const SortByName = (props) => {
         value="sort"
         name="sort"
         onChange={handleChange}
-        checked={props.searchSortAtoZ ? true : false}
+        checked={props.searchSortAtoZ}
       />
     </div>
   );

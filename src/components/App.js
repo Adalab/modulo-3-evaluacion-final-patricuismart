@@ -26,7 +26,7 @@ function App() {
     ls.get('searchStatus', 'all')
   );
   const [searchSortAtoZ, setSearchSortAtoZ] = useState(
-    ls.get('searchSortAtoZ', 'false')
+    ls.get('searchSortAtoZ', false)
   );
 
   // Reset
