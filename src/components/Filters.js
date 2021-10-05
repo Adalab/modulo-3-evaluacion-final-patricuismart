@@ -4,9 +4,8 @@ import FiletrBySpecies from './FilterBySpecies';
 import FilterByStatus from './FilterByStatus';
 import Reset from './Reset';
 const Filters = (props) => {
-  //console.log('filter', props);
   return (
-    <form className="form" onSubmit={(ev) => ev.preventDefaul()}>
+    <form className="form" onSubmit={(ev) => ev.preventDefault()}>
       <FiletrByName
         searchName={props.searchName}
         handleChangeFilter={props.handleChangeFilter}
@@ -14,7 +13,7 @@ const Filters = (props) => {
       <FiletrBySpecies
         searchSpecies={props.searchSpecies}
         handleChangeFilter={props.handleChangeFilter}
-      />{' '}
+      />
       <FilterByStatus
         searchStatus={props.searchStatus}
         handleChangeFilter={props.handleChangeFilter}

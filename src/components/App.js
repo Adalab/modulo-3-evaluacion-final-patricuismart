@@ -39,7 +39,6 @@ function App() {
   useEffect(() => {
     DataApi().then((initialData) => {
       setData(initialData);
-      //console.log('InitialData', initialData);
     });
   }, []);
 
@@ -89,8 +88,6 @@ function App() {
   const selectedCharacter = data.find(
     (character) => character.id === parseInt(characterId)
   );
-  console.log('SelectedCharacter', selectedCharacter);
-  console.log('este es el console del id', characterId);
 
   //Funciones para filtrar
 
