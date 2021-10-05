@@ -4,4 +4,12 @@
   font-size: 0.8rem;
   background-color: $button-color;
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.wubba {
+  width: 3rem;
+  margin-right: 1rem;
 }
