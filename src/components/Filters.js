@@ -1,3 +1,4 @@
+import FilterAlphabet from './FilterAlphabet';
 import FiletrByName from './FilterByName';
 import FiletrBySpecies from './FilterBySpecies';
 import Reset from './Reset';
@@ -11,6 +12,10 @@ const Filters = (props) => {
       />
       <FiletrBySpecies
         searchSpecies={props.searchSpecies}
+        handleChangeFilter={props.handleChangeFilter}
+      />
+      <FilterAlphabet
+        searchSortAtoZ={props.searchSortAtoZ}
         handleChangeFilter={props.handleChangeFilter}
       />
       <Reset handleReset={props.handleReset} />

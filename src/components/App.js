@@ -22,6 +22,9 @@ function App() {
   const [searchSpecies, setSearchSpecies] = useState(
     ls.get('searchSpecies', 'all')
   );
+  const [searchSortAtoZ, setSearchSortAtoZ] = useState(
+    ls.get('searchSortAtoZ', 'false')
+  );
 
   // Reset
   const handleReset = () => {
@@ -49,13 +52,19 @@ function App() {
     ls.set('searchSpecies', searchSpecies);
   }, [searchSpecies]);
 
+  useEffect(() => {
+    ls.set('searchSortAtoZ', searchSortAtoZ);
+  }, [searchSortAtoZ]);
+
   //Funciones manejadoras//
 
   const handleChangeFilter = (data) => {
     if (data.id === 'name') {
       setSearchName(data.value);
-    } else {
+    } else if (data.id === 'species') {
       setSearchSpecies(data.value);
+    } else {
+      setSearchSortAtoZ(data.checked);
     }
   };
 
@@ -87,6 +96,18 @@ function App() {
       (character) =>
         searchSpecies === 'all' || searchSpecies === character.species
     );
+  //si está clickado el checkbox ordena alfabéticamente
+  if (searchSortAtoZ) {
+    filteredData.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 
   return (
     <div>
