@@ -1,11 +1,11 @@
-import FilterAlphabet from './FilterAlphabet';
+import SortByName from './SortByName';
 import FiletrByName from './FilterByName';
 import FiletrBySpecies from './FilterBySpecies';
 import Reset from './Reset';
 const Filters = (props) => {
   //console.log('filter', props);
   return (
-    <form onSubmit={(ev) => ev.preventDefaul()}>
+    <form className="form" onSubmit={(ev) => ev.preventDefaul()}>
       <FiletrByName
         searchName={props.searchName}
         handleChangeFilter={props.handleChangeFilter}
@@ -14,7 +14,7 @@ const Filters = (props) => {
         searchSpecies={props.searchSpecies}
         handleChangeFilter={props.handleChangeFilter}
       />
-      <FilterAlphabet
+      <SortByName
         searchSortAtoZ={props.searchSortAtoZ}
         handleChangeFilter={props.handleChangeFilter}
       />

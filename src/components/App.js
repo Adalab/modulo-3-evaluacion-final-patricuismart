@@ -124,14 +124,12 @@ function App() {
 
           {/*listado personajes con/sin filtro*/}
           <Route exact path="/">
-            <section className="form">
-              <Filters
-                searchName={searchName}
-                searchSpecies={searchSpecies}
-                handleChangeFilter={handleChangeFilter}
-                handleReset={handleReset}
-              />
-            </section>
+            <Filters
+              searchName={searchName}
+              searchSpecies={searchSpecies}
+              handleChangeFilter={handleChangeFilter}
+              handleReset={handleReset}
+            />
             <section className="cards">
               <CharacterList data={filteredData} />
             </section>

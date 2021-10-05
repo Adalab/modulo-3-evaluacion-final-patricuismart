@@ -1,0 +1,62 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  padding-left: 1rem;
+  box-sizing: border-box;
+
+  &__input-text {
+    margin: 0.6rem 0.6rem 0.6rem 1rem;
+    width: 14rem;
+    border: solid 3px $aqua;
+    padding: 0.4rem;
+    border-radius: 2px;
+    color: grey;
+    ::placeholder {
+      color: $aqua;
+    }
+    ::value {
+      color: $aqua;
+    }
+  }
+
+  &__input-select {
+    margin: 0.6rem;
+    border: solid 3px $aqua;
+    padding: 0.4rem;
+    border-radius: 2px;
+    color: grey;
+
+    ::value {
+      color: $aqua;
+    }
+  }
+  &__container-checked {
+    margin-left: 0.6rem;
+    scroll-margin-right: 0.6rem;
+  }
+  &__label-checked {
+    color: $aqua;
+    font-size: 0.9rem;
+    margin: 0.6rem;
+  }
+}
+
+.resetButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.3rem;
+  border: 2px solid $button-color;
+  background-color: $button-color;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  margin-left: 0.6rem;
+  height: 2.3rem;
+
+  &:hover {
+    border-color: $grey;
+    background-color: $grey;
+  }
+}

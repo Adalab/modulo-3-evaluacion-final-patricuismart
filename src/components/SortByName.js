@@ -1,4 +1,4 @@
-const FilterAlphabet = (props) => {
+const SortByName = (props) => {
   const handleChange = (ev) => {
     props.handleChangeFilter({
       checked: ev.target.checked,
@@ -6,9 +6,12 @@ const FilterAlphabet = (props) => {
     });
   };
   return (
-    <div>
-      <label htmlFor="sort"> Sort by Name</label>
+    <div className="form__container-checked">
+      <label className="form__label-checked" htmlFor="sort">
+        Sort by Name
+      </label>
       <input
+        className="form__input-checked"
         id="sort"
         type="checkbox"
         value="sort"
@@ -19,4 +22,4 @@ const FilterAlphabet = (props) => {
     </div>
   );
 };
-export default FilterAlphabet;
+export default SortByName;
