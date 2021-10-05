@@ -2,23 +2,31 @@
   &__container {
     padding-top: 3rem;
     display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
     height: 100vh;
+    @media all and (min-width: 768px) {
+      flex-direction: row;
+    }
   }
   &__item {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 2rem;
-    width: 36rem;
-    height: 17rem;
+    width: 17rem;
+    height: 30rem;
     list-style: none;
     border: 1px solid (127, 194, 241);
     background-color: $button-color;
     font-size: 0.8rem;
     color: $button-color;
     text-decoration: none;
+    @media all and (min-width: 768px) {
+      width: 36rem;
+      height: 17rem;
+    }
   }
   &__link {
     text-decoration: none;
