@@ -18,24 +18,34 @@
   }
   &__item {
     margin: 1rem;
-    width: 11rem;
-    height: 15.5rem;
+    width: 16rem;
+    height: 19rem;
     list-style: none;
     border: 1px solid (127, 194, 241);
     background-color: $button-color;
     font-size: 0.8rem;
     color: $button-color;
     text-decoration: none;
+    text-align: center;
     &:hover {
       border: solid 0.4rem $aqua;
       border-radius: 0.1rem;
+    }
+    @media all and (min-width: 768px) {
+      width: 11rem;
+      height: 15.5rem;
+      text-align: left;
     }
   }
   &__link {
     text-decoration: none;
   }
   &__img {
-    width: 11rem;
+    width: 16rem;
+
+    @media all and (min-width: 768px) {
+      width: 11rem;
+    }
   }
   &__title {
     text-decoration: none;
@@ -43,6 +53,7 @@
     margin-left: 0.3rem;
     padding: 0.1rem;
     font-size: 0.9rem;
+    text-align: left;
   }
   &__description {
     text-decoration: none;
@@ -50,11 +61,16 @@
     margin-left: 0.3rem;
     padding: 0.1rem;
     font-size: 0.8rem;
+    text-align: left;
   }
   &__icon {
     position: relative;
-    left: 8rem;
-    top: -1.2rem;
+    left: 13rem;
+    top: -2rem;
     width: 2rem;
+    @media all and (min-width: 768px) {
+      left: 8rem;
+      top: -1.2rem;
+    }
   }
 }

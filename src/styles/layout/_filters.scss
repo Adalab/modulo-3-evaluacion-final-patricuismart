@@ -1,14 +1,28 @@
 .form {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  padding: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
   align-items: center;
-  padding-left: 1rem;
-  box-sizing: border-box;
+
+  @media all and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding: 2rem;
+  }
+
+  @media all and (min-width: 1024px) {
+    margin-left: 1.6rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 3rem;
+  }
 
   &__input-text {
-    margin: 0.6rem 0.6rem 0.6rem 1rem;
-    width: 14rem;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
     border: solid 3px $aqua;
     padding: 0.4rem;
     border-radius: 2px;
@@ -19,10 +33,19 @@
     ::value {
       color: $aqua;
     }
+
+    @media all and (min-width: 768px) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+    }
+    @media all and (min-width: 1024px) {
+      grid-column: 1 / 2;
+    }
   }
 
   &__input-select {
-    margin: 0.6rem;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
     border: solid 3px $aqua;
     padding: 0.4rem;
     border-radius: 2px;
@@ -31,18 +54,36 @@
     ::value {
       color: $aqua;
     }
+    @media all and (min-width: 768px) {
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+    }
+    @media all and (min-width: 1024px) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
   }
   &__container-checked {
-    margin-left: 0.6rem;
-    scroll-margin-right: 0.6rem;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    @media all and (min-width: 768px) {
+      grid-column: 5 / 6;
+      grid-row: 1 / 2;
+    }
+    @media all and (min-width: 1024px) {
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+    }
   }
   &__label-checked {
     color: $aqua;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    margin-right: 1rem;
   }
 
   &__input-status {
-    margin: 0.6rem;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
     border: solid 3px $aqua;
     padding: 0.4rem;
     border-radius: 2px;
@@ -50,11 +91,22 @@
 
     ::value {
       color: $aqua;
+    }
+    @media all and (min-width: 768px) {
+      grid-column: 4 / 5;
+      grid-row: 1 / 2;
+    }
+    @media all and (min-width: 1024px) {
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
     }
   }
 }
 
 .resetButton {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  width: 9rem;
   padding: 0.5rem 1.5rem;
   border-radius: 0.3rem;
   border: 2px solid $button-color;
@@ -62,11 +114,14 @@
   color: #fff;
   cursor: pointer;
   transition: all ease 0.3s;
-  margin-left: 0.6rem;
   height: 2.3rem;
 
   &:hover {
     border-color: $grey;
     background-color: $grey;
+  }
+  @media all and (min-width: 1024px) {
+    grid-column: 5 / 6;
+    grid-row: 1 / 2;
   }
 }

@@ -9,11 +9,11 @@ import Footer from './Footer';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import Filters from './Filters';
+import PageNotFound from './PageNotFound';
 
 // services
 import DataApi from '../services/DataApi';
 import ls from '../services/local-storage';
-import PageNotFound from './PageNotFound';
 
 function App() {
   //estados//

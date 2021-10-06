@@ -8,6 +8,9 @@
 }
 
 .logo {
-  width: 22rem;
+  width: 20rem;
   margin-top: 2rem;
+  @media all and (min-width: 768px) {
+    width: 25rem;
+  }
 }
