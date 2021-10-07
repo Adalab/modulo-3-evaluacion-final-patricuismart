@@ -25,6 +25,9 @@ function App() {
   const [searchStatus, setSearchStatus] = useState(
     ls.get('searchStatus', 'all')
   );
+  const [searchEpisode, setSearchEpisode] = useState(
+    ls.get('searchEpisode', '')
+  );
   const [searchSortAtoZ, setSearchSortAtoZ] = useState(
     ls.get('searchSortAtoZ', false)
   );
@@ -58,6 +61,10 @@ function App() {
   }, [searchStatus]);
 
   useEffect(() => {
+    ls.set('searchEpisode', searchEpisode);
+  }, [searchEpisode]);
+
+  useEffect(() => {
     ls.set('searchSortAtoZ', searchSortAtoZ);
   }, [searchSortAtoZ]);
 
@@ -70,6 +77,8 @@ function App() {
       setSearchSpecies(data.value);
     } else if (data.id === 'status') {
       setSearchStatus(data.value);
+    } else if (data.id === 'episode') {
+      setSearchEpisode(data.value);
     } else {
       setSearchSortAtoZ(data.checked);
     }
@@ -105,6 +114,12 @@ function App() {
 
     .filter(
       (character) => searchStatus === 'all' || searchStatus === character.status
+    )
+
+    .filter(
+      (character) =>
+        searchEpisode === '' ||
+        parseInt(searchEpisode) === parseInt(character.episode.length)
     );
 
   //si está clickado el checkbox ordena alfabéticamente
@@ -139,6 +154,7 @@ function App() {
               searchName={searchName}
               searchSpecies={searchSpecies}
               searchStatus={searchStatus}
+              searchEpisode={searchEpisode}
               searchSortAtoZ={searchSortAtoZ}
               handleChangeFilter={handleChangeFilter}
               handleReset={handleReset}

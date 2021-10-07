@@ -1,6 +1,6 @@
 # Módulo 3: Ejercicio de evaluación final
 
-El ejercicio consiste en desarrollar una página web con un listado de personajes de Rick and Morty, que podemos filtrar para obtener distintas b´squedas y resultados. Hemos usado React para realizarlo.
+El ejercicio consiste en desarrollar una página web con un listado de personajes de Rick and Morty, que podemos filtrar para obtener distintas búsquedas y resultados. Hemos usado React para realizarlo.
 
 ## Distintas partes del Ejercicio
 

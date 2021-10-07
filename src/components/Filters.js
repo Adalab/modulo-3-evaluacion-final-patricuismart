@@ -3,6 +3,7 @@ import FiletrByName from './FilterByName';
 import FiletrBySpecies from './FilterBySpecies';
 import FilterByStatus from './FilterByStatus';
 import Reset from './Reset';
+import FilterByEpisode from './FilterByEpisode';
 const Filters = (props) => {
   return (
     <form className="form" onSubmit={(ev) => ev.preventDefault()}>
@@ -16,6 +17,10 @@ const Filters = (props) => {
       />
       <FilterByStatus
         searchStatus={props.searchStatus}
+        handleChangeFilter={props.handleChangeFilter}
+      />
+      <FilterByEpisode
+        searchEpisode={props.searchEpisode}
         handleChangeFilter={props.handleChangeFilter}
       />
       <SortByName
